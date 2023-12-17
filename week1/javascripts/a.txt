@@ -1,0 +1,3 @@
+Hi there from a.txt
+
+Journey to become a full stack developer is about to start...
