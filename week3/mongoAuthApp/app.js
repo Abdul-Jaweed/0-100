@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://myAtlasDBUser:bCIfYIuklYT1Xq35@myatlasclusteredu.anflorb.mongodb.net/userapp")
+mongoose.connect()
 
 const User = mongoose.model("Users",{
     name: String,
