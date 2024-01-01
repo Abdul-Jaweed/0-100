@@ -1,4 +1,4 @@
-const express = requrire("express");
+const express = require("express");
 
 const app = express();
 const port = 3000;
@@ -8,7 +8,7 @@ app.get('/sum', (req, res)=>{
     const b = parseInt(req.query.b);
     const sum = a + b;
     res.send(sum.toString());
-})
+});
 
 
 app.listen(port)

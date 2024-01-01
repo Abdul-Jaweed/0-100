@@ -1,0 +1,51 @@
+<html>
+    <style>
+        .container{
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        #but {
+            background-color: rgb(132, 214, 132);
+            text-align: center;
+            margin-left: 3%;
+        }
+        #finalSum{
+            <!-- background-color: rgb(132, 214, 132); -->
+            text-align: center;
+            margin-left: 3%;
+        }
+    </style>
+    <script>
+        /*
+        function populateDiv() {
+            const a = document.getElementById("firstNumber").value;
+            const b = document.getElementById("secondNumber").value;
+            const element = document.getElementById("finalSum")
+            element.innerHTML = parseInt(a) + parseInt(b);
+        }
+        */
+        const populateDiv = ()=>{
+            const a = document.getElementsByClassName("container")[0].value;
+            const b = document.getElementsByClassName("container")[1].value;
+            // const element = document.getElementById("finalSum");
+            // element.innerHTML = parseInt(a) + parseInt(b);
+            // fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b)
+            // fetch("http://localhost:3000/sum?a=3+&b=+5")
+            const response = await fetch("http://localhost:3000/sum?a="+a+"&b="+b);
+            const ans = await response.text();
+            document.getElementById("finalSum").innerHTML = ans;
+        }
+    </script>
+    <body>
+        <input id="firstNumber" type="text" placeholder="first number" class="container"></input>
+        <br>
+        <br>
+        <input id="secondNumber" type="text" placeholder="second number" class="container"></input>
+        <br>
+        <br>
+        <button id="but" onclick="populateDiv()">Calculate sum</button>
+        <br>
+        <br>
+        <div id="finalSum"></div>
+    </body>
+</html>
