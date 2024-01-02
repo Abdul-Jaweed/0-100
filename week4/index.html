@@ -1,0 +1,61 @@
+<html>
+    <style>
+        .container{
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        #but {
+            background-color: rgb(132, 214, 132);
+            text-align: center;
+            margin-left: 3%;
+        }
+        #finalSum{
+            <!-- background-color: rgb(132, 214, 132); -->
+            text-align: center;
+            margin-left: 3%;
+        }
+    </style>
+    <script>
+        /*
+        function populateDiv() {
+            const a = document.getElementById("firstNumber").value;
+            const b = document.getElementById("secondNumber").value;
+            const element = document.getElementById("finalSum")
+            element.innerHTML = parseInt(a) + parseInt(b);
+        }
+        */
+
+        let timeout;
+        onst debouncePopulateDiv = () => {
+            // delay the call to populateDiv until ive not been called for 100ms
+            // and I've been called atleast once
+
+            // how do you cancel a clock?
+            // clearTimeout
+            clearTimeout(timeout);
+            const timeout = setTimeout(()=>{
+                populateDiv()
+            }, 100);
+        }
+
+
+        const populateDiv = () => {
+            const a = document.getElementsByClassName("container")[0].value;
+            const b = document.getElementsByClassName("container")[1].value;
+            const element = document.getElementById("finalSum");
+            element.innerHTML = parseInt(a) + parseInt(b);
+        }
+    </script>
+    <body>
+        <input oninput="populateDiv()" id="firstNumber" type="text" placeholder="first number" class="container"></input>
+        <br>
+        <br>
+        <input oninput="populateDiv()" id="secondNumber" type="text" placeholder="second number" class="container"></input>
+        <br>
+        <br>
+        <!-- <button id="but" onclick="populateDiv()">Calculate sum</button> -->
+        <br>
+        <br>
+        <div id="finalSum"></div>
+    </body>
+</html>
